@@ -1,0 +1,1 @@
+export { default } from "file:///Users/christina/GitHub/europe-climate-reporting-2/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
