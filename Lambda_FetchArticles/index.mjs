@@ -1,5 +1,3 @@
-// Code der nur mit keywordGroup arbeitet und translation und analystics funktioniert. 
-
 import { createClient } from '@supabase/supabase-js';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
@@ -92,12 +90,12 @@ const languageMapping = {
 
 const countryGroups = {
   albanian: ['AL'],
-  english: ['IE', 'GB'],
-  german: ['AT', 'CH', 'LU', 'DE'],
+  english: ['IE'],
+  german: ['AT', 'CH', 'LU'],
   serbian: ['BA', 'HR', 'ME', 'RS'], // serbian, croatian, bosnian and montenegrin are all the same
   dutch: ['BE', 'NL', 'LU'],
   luxembourgish: ['LU'],
-  french: ['BE', 'CH', 'FR'],
+  french: ['BE', 'CH'],
   bulgarian: ['BG'],
   macedonian: ['MK'],
   russian: ['BY', 'RU', 'UA', 'DE'], // source prime_ru is mistakenly defined as a german source
@@ -123,6 +121,45 @@ const countryGroups = {
   danish: ['DK'],
   ukrainian: ['UA'],
   belarusian: ['BY'],
+  low: ['DE', 'FR'],
+  top: ['GB']
+};
+
+const simpleKeywords = {
+  albanian: ['klima', 'mjedisi'],
+  english: ['climate', 'environment'],
+  german: ['Klima', 'Umwelt'],
+  serbian: ['klima', 'okolina'],
+  dutch: ['klimaat', 'milieu'],
+  luxembourgish: ['Klima', 'Ëmwelt'],
+  french: ['climat', 'environnement'],
+  bulgarian: ['климат', 'околна среда'],
+  macedonian: ['клима', 'животна средина'],
+  russian: ['климат', 'окружающая среда'],
+  greek: ['κλίμα', 'περιβάλλον'],
+  turkish: ['iklim', 'çevre'],
+  italian: ['clima', 'ambiente'],
+  czech: ['klima', 'životní prostředí'],
+  polish: ['klimat', 'środowisko'],
+  estonian: ['kliima', 'keskkond'],
+  latvian: ['klimats', 'vide'],
+  lithuanian: ['klimatas', 'aplinka'],
+  spanish: ['clima', 'medio ambiente'],
+  portuguese: ['clima', 'ambiente'],
+  finnish: ['ilmasto', 'ympäristö'],
+  maltese: ['klima', 'ambjent'],
+  hungarian: ['klíma', 'környezet'],
+  romanian: ['climă', 'mediu'],
+  slovenian: ['podnebje', 'okolje'],
+  slovak: ['klíma', 'prostredie'],
+  norwegian: ['klima', 'miljø'],
+  icelandic: ['loftslag', 'umhverfi'],
+  swedish: ['klimat', 'miljö'],
+  danish: ['klima', 'miljø'],
+  ukrainian: ['клімат', 'навколишнє середовище'],
+  belarusian: ['клімат', 'наваўколнае асяроддзе'],
+  low: ['Klima', 'Umwelt', 'climat', 'environnement'],
+  top: ['climate', 'environment']
 };
 
 const keywordGroups = {
@@ -158,6 +195,8 @@ const keywordGroups = {
   danish: ['klimaindsats', 'klimabeskyttelse', 'miljøbeskyttelse', 'klimaændringer', 'klimaforandringer', 'ændringer i klimaet', 'global opvarmning', 'global ophedning', 'stigning i globale temperaturer', 'klimakrise', 'klimanødsituation', 'klimaproblem', 'klimakatastrofe', 'miljøkatastrofe'],
   ukrainian: ['захист клімату', 'охорона клімату', 'захист навколишнього середовища', 'зміна клімату', 'кліматичні зміни', 'кліматичні варіації', 'глобальне потепління', 'потепління клімату', 'підвищення глобальної температури', 'кліматична криза', 'кліматична проблема', 'кліматична катастрофа', 'кліматичне лихо'],
   belarusian: ['ахова клімату', 'абарона клімату', 'ахова навакольнага асяроддзя', 'змена клімату', 'кліматычныя змены', 'варыяцыі клімату', 'глабальнае пацяпленне', 'кліматычны крызіс', 'надзвычайная кліматычная сітуацыя', 'кліматычная праблема', 'кліматычная катастрофа', 'кліматычная трагедыя'],
+  low: ['Klimaschutz', 'Umweltschutz', 'Klimawandel', 'Klimaerwärmung', 'Globale Erwärmung', 'Erderwärmung', 'Klimakrise', 'Klimakatastrophe', 'Umweltkatastrophe', 'protection du climat', 'changement climatique', 'réchauffement climatique', 'crise climatique', 'urgence climatique', 'préservation du climat'],
+  top: ['climate change', 'environmental protection', 'global warming', 'climate crisis', 'climate emergency', 'climate catastrophe', 'climate disaster', 'climate protection', 'climate preservation', 'climate variations', 'global heating', 'earth heating', 'climate problem', 'climate catastrophe', 'environmental catastrophe']
 };
 
 const fetchArticlesForRandomGroup = async () => {
@@ -168,8 +207,8 @@ const fetchArticlesForRandomGroup = async () => {
   let allArticles = [];
 
   for (const [language, countryGroup] of Object.entries(randomCountryGroup)) {
+    const simpleKeyword = simpleKeywords[language].join(' OR ');
     const keywordGroup = keywordGroups[language];
-    const queryKeyword = keywordGroup.join(' OR ');
     let page = null;
     let hasMore = true;
 
@@ -180,12 +219,19 @@ const fetchArticlesForRandomGroup = async () => {
             apikey: API_KEY,
             country: country,
             full_content: 1,
-            timeframe: 3,
+            from_date: '2024-08-19',
+            to_date: '2024-08-19',
             page: page,
-            q: queryKeyword
+            q: simpleKeyword
           };
 
-          const response = await axios.get('https://newsdata.io/api/1/news', { params, timeout: 200000 });
+          if (language === 'low') {
+            params.prioritydomain = 'top';
+          } else if (language === 'top') {
+            params.prioritydomain = 'top';
+          }
+
+          const response = await axios.get('https://newsdata.io/api/1/archive', { params, timeout: 200000 });
           console.log(`Fetching articles with params: ${JSON.stringify(params)}`);
           console.log('API response received');
 
@@ -232,7 +278,6 @@ const fetchArticlesForRandomGroup = async () => {
 
   return allArticles;
 };
-
 
 const removeDuplicateArticles = async (articles) => {
   console.log("Removing duplicate articles");
@@ -366,14 +411,14 @@ const updateAnalytics = async () => {
 
       analyticsEntries.push({
         country,
-        month: `${month}-01`, // Add day to match DATE format
+        month: `${month}-01`, 
         count_month: data.count_month,
-        keyword_1: keyword_1 || '', // ensure no null values
-        count_1: count_1 || 0, // ensure no null values
-        keyword_2: keyword_2 || '', // ensure no null values
-        count_2: count_2 || 0, // ensure no null values
-        keyword_3: keyword_3 || '', // ensure no null values
-        count_3: count_3 || 0 // ensure no null values
+        keyword_1: keyword_1 || '', 
+        count_1: count_1 || 0, 
+        keyword_2: keyword_2 || '', 
+        count_2: count_2 || 0, 
+        keyword_3: keyword_3 || '', 
+        count_3: count_3 || 0 
       });
     });
   });
@@ -423,19 +468,26 @@ export const handler = async (event) => {
         article.source_id !== 'euronews_gr' && article.source_id !== 'euronews_ru' &&
         article.source_id !== 'ign_nl' && article.source_id !== 'ign_me_ar' &&
         article.source_id !== 'ign_nordic' && article.source_id !== 'virginislandsdailynews' &&
+        article.source_id !== 'gmx' && article.source_id !== 'theepochtimes' &&
         article.source_id !== 'phys' && article.source_id !== 'theepochtimes')
       .map(article => {
         let country = Array.isArray(article.country) ? article.country : [article.country];
         if (article.source_id === 'botasot') {
           country = 'kosovo';
         } else if (article.source_id === 'bbc' && article.language === 'english') {
-          country = 'united kingdom';
+          country = 'united_kingdom';
         } else if (article.source_id === 'europatoday' || article.source_id === 'today') {
           country = 'italy';
         } else if (article.source_id === 'larazon_es') {
           country = 'spain';
         } else if (article.source_id === 'prime1_ru') {
           country = 'russia';
+        } else if (article.country === 'united kingdom') {
+          country = 'united_kingdom';
+        } else if (article.country === 'czech republic') {
+          country = 'czech_republic';
+        } else if (article.country === 'bosnia and herzegovina') {
+          country = 'bosnia_and_herzegovina';
         } else {
           country = country[0];
         }
