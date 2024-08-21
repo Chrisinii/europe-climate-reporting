@@ -27,14 +27,22 @@ Dieses Projekt ist Teil meiner Abschlussarbeit im Rahmen meines Bachelorstudiums
 
 ### Keywords für die Abfrage
 
-- **Albanian**: `['ndryshimet klimatike', 'ngrohja globale', 'mbrojtja e klimës', 'ruajtja e klimës', 'ndryshimi i klimës', 'kriza klimatike', 'katastrofa klimatike', 'fatkeqësia klimatike']`
-- **English**: `['climate change', 'environmental protection', 'global warming', 'climate crisis', 'climate emergency', 'climate catastrophe', 'climate disaster', 'climate protection', 'climate preservation', 'climate variations', 'global heating', 'earth heating', 'climate problem', 'climate catastrophe', 'environmental catastrophe']`
-- **German**: `['Klimaschutz', 'Umweltschutz', 'Klimawandel', 'Klimaerwärmung', 'Globale Erwärmung', 'Erderwärmung', 'Klimakrise', 'Klimakatastrophe', 'Umweltkatastrophe']`
-- **Serbian**: `['zaštita okoliša', 'klimatske promene', 'klimatske promjene', 'promene klime', 'promjene klime', 'klimatska promjena', 'klimatske varijacije', 'globalno zagrevanje', 'globalno zagrijavanje', 'globalno otopljenje', 'klimatska kriza', 'kriza klime', 'katastrofa klime']`
-- **Dutch**: `['bescherming van het klimaat', 'bescherming van de omgeving', 'klimaatverandering', 'verandering van het klimaat', 'klimaatschommelingen', 'opwarming van de aarde', 'klimaatcrisis', 'noodtoestand van het klimaat', 'klimaatramp', 'ramp van het klimaat', 'klimaatbescherming', 'aardopwarming', 'klimaatnoodtoestand', 'klimaatcatastrofe']`
-- **Luxembourgish**: `['Leschte vum Klima', 'Schutz vum Klima', 'Klima erhaalen', 'Klimawandel', 'Verännerung vum Klima', 'Klimaverännerungen', 'Globale Erwiermung', 'Erwiermung vun der Äerd', 'Klimakris', 'Klimanoutstand', 'Klimanoutfall', 'Klima-Problem', 'Klima-Katastroph', 'Ëmweltkatastroph']`
-- **French**: `['protection du climat', 'changement climatique', 'réchauffement climatique', 'crise climatique', 'urgence climatique', 'préservation du climat', 'protection environnementale', 'catastrophe environnementale']`
-- **Bulgarian**: `['защита на климата', 'опазване на климата', 'климатична защита', 'климатични промени', 'промени в климата', 'климатични вариации', 'глобално затопляне', 'глобално затопление', 'климатична криза', 'климатична спешност', 'климатична авария', 'климатичен проблем', 'климатична катастрофа', 'климатично бедствие', 'екологична катастрофа']`
+**Albanian**: 
+`['ndryshimet klimatike', 'ngrohja globale', 'mbrojtja e klimës', 'ruajtja e klimës', 'ndryshimi i klimës', 'kriza klimatike', 'katastrofa klimatike', 'fatkeqësia klimatike']`
+**English**: 
+`['climate change', 'environmental protection', 'global warming', 'climate crisis', 'climate emergency', 'climate catastrophe', 'climate disaster', 'climate protection', 'climate preservation', 'climate variations', 'global heating', 'earth heating', 'climate problem', 'climate catastrophe', 'environmental catastrophe']`
+**German**: 
+`['Klimaschutz', 'Umweltschutz', 'Klimawandel', 'Klimaerwärmung', 'Globale Erwärmung', 'Erderwärmung', 'Klimakrise', 'Klimakatastrophe', 'Umweltkatastrophe']`
+**Serbian**: 
+`['zaštita okoliša', 'klimatske promene', 'klimatske promjene', 'promene klime', 'promjene klime', 'klimatska promjena', 'klimatske varijacije', 'globalno zagrevanje', 'globalno zagrijavanje', 'globalno otopljenje', 'klimatska kriza', 'kriza klime', 'katastrofa klime']`
+**Dutch**: 
+`['bescherming van het klimaat', 'bescherming van de omgeving', 'klimaatverandering', 'verandering van het klimaat', 'klimaatschommelingen', 'opwarming van de aarde', 'klimaatcrisis', 'noodtoestand van het klimaat', 'klimaatramp', 'ramp van het klimaat', 'klimaatbescherming', 'aardopwarming', 'klimaatnoodtoestand', 'klimaatcatastrofe']`
+**Luxembourgish**: 
+`['Leschte vum Klima', 'Schutz vum Klima', 'Klima erhaalen', 'Klimawandel', 'Verännerung vum Klima', 'Klimaverännerungen', 'Globale Erwiermung', 'Erwiermung vun der Äerd', 'Klimakris', 'Klimanoutstand', 'Klimanoutfall', 'Klima-Problem', 'Klima-Katastroph', 'Ëmweltkatastroph']`
+**French**: 
+`['protection du climat', 'changement climatique', 'réchauffement climatique', 'crise climatique', 'urgence climatique', 'préservation du climat', 'protection environnementale', 'catastrophe environnementale']`
+**Bulgarian**: 
+`['защита на климата', 'опазване на климата', 'климатична защита', 'климатични промени', 'промени в климата', 'климатични вариации', 'глобално затопляне', 'глобално затопление', 'климатична криза', 'климатична спешност', 'климатична авария', 'климатичен проблем', 'климатична катастрофа', 'климатично бедствие', 'екологична катастрофа']`
 - **Macedonian**: `['заштита на климата', 'заштита на животната средина', 'климатски промени', 'промени во климата', 'климатски варијации', 'глобално затоплување', 'зголемување на глобалната температура', 'климатска криза', 'климатска итност', 'климатска нужност', 'климатски проблем', 'климатска катастрофа', 'климатска несреќа', 'катастрофа на климата']`
 - **Russian**: `['защита климата', 'охрана климата', 'защита окружающей среды', 'изменение климата', 'климатические изменения', 'перемены климата', 'климатические вариации', 'глобальное потепление', 'потепление планеты', 'климатический кризис', 'климатическая проблема', 'климатическая катастрофа', 'экологическая катастрофа']`
 - **Greek**: `['προστασία του κλίματος', 'διατήρηση του κλίματος', 'προστασία του περιβάλλοντος', 'κλιματική αλλαγή', 'αλλαγή του κλίματος', 'κλιματικές μεταβολές', 'παγκόσμια θέρμανση', 'πλανητική θέρμανση', 'κλιματική κρίση', 'κλιματική έκτακτη ανάγκη', 'πρόβλημα του κλίματος', 'κλιματική καταστροφή', 'κλιματική συμφορά', 'οικολογική καταστροφή']`
