@@ -12,7 +12,7 @@ Dieses Projekt ist Teil meiner Abschlussarbeit im Rahmen meines Bachelorstudiums
 ### Backend
 - **NewsData.io API**: Diese API wird verwendet, um Nachrichtenartikel zu den definierten Themen und Ländern abzurufen.
 - **Supabase Database**: Dient zum Speichern der abgerufenen Nachrichtenartikel und weiteren Daten.
-- **AWS Lambda & EventBridge**: Diese Services automatisieren die Datenabfrage von der API. Zwischen 09:00 und 21:00 Uhr wird alle 5 Minuten ein Land abgefragt, sodass jedes Land alle drei Stunden abgerufen wird.
+- **AWS Lambda & EventBridge**: Automatisierung der Datenabfrage von der API. Zwischen 09:00 und 21:00 Uhr wird alle 5 Minuten ein Land abgefragt, sodass jedes Land alle drei Stunden abgerufen wird.
 
 ### Assets
 - **SVG Europe Map**: Die Karte wurde von [SimpleMaps](https://simplemaps.com/resources/svg-europe) verwendet. Russland wurde manuell über Adobe Illustrator hinzugefügt.
