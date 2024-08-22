@@ -209,56 +209,45 @@ const fetchArticlesForRandomGroup = async () => {
   for (const [language, countryGroup] of Object.entries(randomCountryGroup)) {
     const simpleKeyword = simpleKeywords[language].join(' OR ');
     const keywordGroup = keywordGroups[language];
-    let page = null;
-    let hasMore = true;
 
-    while (hasMore) {
-      try {
-        for (const country of countryGroup) {
-          const params = {
-            apikey: API_KEY,
-            country: country,
-            full_content: 1,
-            from_date: '2024-08-19',
-            to_date: '2024-08-19',
-            page: page,
-            q: simpleKeyword
-          };
+    try {
+      for (const country of countryGroup) {
+        const params = {
+          apikey: API_KEY,
+          country: country,
+          full_content: 1,
+          timeframe: 3,
+          q: simpleKeyword
+        };
 
-          if (language === 'low') {
-            params.prioritydomain = 'top';
-          } else if (language === 'top') {
-            params.prioritydomain = 'top';
-          }
-
-          const response = await axios.get('https://newsdata.io/api/1/archive', { params, timeout: 200000 });
-          console.log(`Fetching articles with params: ${JSON.stringify(params)}`);
-          console.log('API response received');
-
-          const articles = response.data.results;
-          console.log(`Number of articles received: ${articles.length}`);
-          if (articles && articles.length > 0) {
-            articles.forEach(article => {
-              const keywordsFound = keywordGroup.filter(keyword =>
-                (article.title && article.title.includes(keyword)) ||
-                (article.description && article.description.includes(keyword)) ||
-                (article.content && article.content.includes(keyword))
-              );
-              if (keywordsFound.length > 0) {
-                article.keywords = keywordsFound.join(', ');
-                allArticles.push(article);
-              }
-            });
-            page = response.data.nextPage;
-            hasMore = !!page;
-          } else {
-            hasMore = false;
-          }
+        if (language === 'low') {
+          params.prioritydomain = 'medium';
+        } else if (language === 'top') {
+          params.prioritydomain = 'top';
         }
-      } catch (error) {
-        console.error('Error fetching data from API:', error);
-        hasMore = false;
+
+        const response = await axios.get('https://newsdata.io/api/1/news', { params, timeout: 200000 });
+        console.log(`Fetching articles with params: ${JSON.stringify(params)}`);
+        console.log('API response received');
+
+        const articles = response.data.results;
+        console.log(`Number of articles received: ${articles.length}`);
+        if (articles && articles.length > 0) {
+          articles.forEach(article => {
+            const keywordsFound = keywordGroup.filter(keyword =>
+              (article.title && article.title.includes(keyword)) ||
+              (article.description && article.description.includes(keyword)) ||
+              (article.content && article.content.includes(keyword))
+            );
+            if (keywordsFound.length > 0) {
+              article.keywords = keywordsFound.join(', ');
+              allArticles.push(article);
+            }
+          });
+        }
       }
+    } catch (error) {
+      console.error('Error fetching data from API:', error);
     }
   }
 
@@ -278,6 +267,7 @@ const fetchArticlesForRandomGroup = async () => {
 
   return allArticles;
 };
+
 
 const removeDuplicateArticles = async (articles) => {
   console.log("Removing duplicate articles");
@@ -469,7 +459,7 @@ export const handler = async (event) => {
         article.source_id !== 'ign_nl' && article.source_id !== 'ign_me_ar' &&
         article.source_id !== 'ign_nordic' && article.source_id !== 'virginislandsdailynews' &&
         article.source_id !== 'gmx' && article.source_id !== 'theepochtimes' &&
-        article.source_id !== 'phys' && article.source_id !== 'theepochtimes')
+        article.country !== 'australia')
       .map(article => {
         let country = Array.isArray(article.country) ? article.country : [article.country];
         if (article.source_id === 'botasot') {
