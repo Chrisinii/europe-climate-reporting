@@ -58,7 +58,7 @@ Dieses Projekt ist Teil meiner Abschlussarbeit im Rahmen meines Bachelorstudiums
 - **Schwedisch**: klimatskydd, miljöskydd, skydd av klimatet, klimatförändring, förändring av klimatet, klimatvariationer, global uppvärmning, global temperaturökning, uppvärmning av jorden, klimatkris, klimatnödläge, klimatnödsituation, klimatproblem, klimatkatastrof
 - **Dänisch**: klimaindsats, klimabeskyttelse, miljøbeskyttelse, klimaændringer, klimaforandringer, ændringer i klimaet, global opvarmning, global ophedning, stigning i globale temperaturer, klimakrise, klimanødsituation, klimaproblem, klimakatastrophe, miljøkatastrophe
 - **Ukrainisch**: захист клімату, охорона клімату, захист навколишнього середовища, зміна клімату, кліматичні зміни, кліматичні варіації, глобальне потепління, потепління клімату, підвищення глобальної температури, кліматична криза, кліматична проблема, кліматична катастрофа, кліматичне лихо
-- **Weißrussisch**: ахова клімату, абарона клімату, ахова навакольнага асяроддзя, змена клімату, кліматычныя змены, варыяціі клімату, глабальнае пацяпленне, кліматычны крызіс, надзвычайная кліматычная сітуацыя, кліматычная праблема, кліматычная катастрофа, кліматычная трагедыя
+- **Belarussisch**: ахова клімату, абарона клімату, ахова навакольнага асяроддзя, змена клімату, кліматычныя змены, варыяціі клімату, глабальнае пацяпленне, кліматычны крызіс, надзвычайная кліматычная сітуацыя, кліматычная праблема, кліматычная катастрофа, кліматычная трагедыя
 
 
 ### FetchArticles Script
