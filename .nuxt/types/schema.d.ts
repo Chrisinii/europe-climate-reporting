@@ -29,9 +29,9 @@ declare module 'nuxt/schema' {
   }
   interface PublicRuntimeConfig {
    supabase: {
-      url: any,
+      url: string,
 
-      key: any,
+      key: string,
 
       redirect: boolean,
 

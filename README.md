@@ -81,3 +81,5 @@ Das Archive Script hat folgende Aufgaben:
 - **Duplikate entfernen**: Entfernt doppelte Einträge aus den abgerufenen Artikeln.
 - **Artikel in die Datenbank speichern**: Speichert die bereinigten Artikel in der Supabase-Datenbank.
 - **Loggen und Beenden**: Protokolliert den Prozess und beendet das Script.
+
+Stand: 21.08.2024

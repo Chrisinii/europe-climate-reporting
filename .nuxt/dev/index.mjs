@@ -103,8 +103,6 @@ const _inlineRuntimeConfig = {
   },
   "public": {
     "supabase": {
-      "url": "",
-      "key": "",
       "redirect": false,
       "redirectOptions": {
         "login": "/login",
