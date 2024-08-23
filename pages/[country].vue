@@ -58,9 +58,9 @@ onMounted(fetchArticles);
 
       <div v-if="articleData.length > 0" class="card-content">
         <div class="scroll-container">
-          <p class="text-2xl font-semibold text-green">{{ articleData[currentArticleIndex]?.title_en }}</p>
-          <p class="text-xl font-bold">{{ articleData[currentArticleIndex]?.description_en }}</p>
-          <p class="text-xl">{{ articleData[currentArticleIndex]?.content_en }}</p>
+          <p class="text-3xl font-semibold text-green">{{ articleData[currentArticleIndex]?.title_en }}</p>
+          <p class="text-lg font-bold custom-font">{{ articleData[currentArticleIndex]?.description_en }}</p>
+          <p class="text-lg custom-font">{{ articleData[currentArticleIndex]?.content_en }}</p>
         </div>
       </div>
       <div v-else class="card-content text-center mt-10">
@@ -146,8 +146,31 @@ onMounted(fetchArticles);
   width: 100%;
 }
 
+.custom-font {
+  font-family: 'Roboto', sans-serif; /* Nutze die Moderustic Schriftart */
+}
 
-@media (max-width: 640px) {
+@media (max-width: 640px) and (max-height: 700px) {
+  .card-content {
+    height: 50vh; 
+    width: 350px;
+    padding: 20px; 
+    border-radius: 25px; 
+    margin: 0 auto;
+    position: absolute;
+    bottom: 75px;
+  }
+
+  footer {
+    display: none;
+  }
+
+  h2 {
+    right: 15%;
+  }
+}
+
+@media (max-width: 640px) and (min-height: 701px) {
   .card-content {
     height: 61vh; 
     width: 350px;
@@ -157,13 +180,131 @@ onMounted(fetchArticles);
     position: absolute;
     bottom: 75px;
   }
+
+  footer {
+    display: none;
+  }
+
+
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 641px) and (max-height: 700px) {
   .card-content {
+    height: 45vh; 
+    width: 550px;
+    padding: 20px; 
+    border-radius: 25px; 
+    margin: 0 auto;
+    position: absolute;
+    bottom: 75px;
+  }
+
+  footer {
+    display: none;
+  }
+
+
+}
+
+@media (min-width: 641px) and (min-height: 701px) {
+  .card-content {
+    height: 54vh; 
+    width: 550px;
+    padding: 20px; 
+    border-radius: 25px; 
+    margin: 0 auto;
+    position: absolute;
+    bottom: 75px;
+  }
+
+  footer {
+    display: none;
+  }
+
+
+}
+
+@media (min-width: 641px) and (min-height: 701px) {
+  .card-content {
+    height: 54vh; 
+    width: 550px;
+    padding: 20px; 
+    border-radius: 25px; 
+    margin: 0 auto;
+    position: absolute;
+    bottom: 75px;
+  }
+
+  footer {
+    display: none;
+  }
+
+
+}
+
+@media (min-width: 801px) and (max-height: 890px) {
+  .card-content {
+    height: 60vh; 
+    width: 800px;
+    padding: 20px; 
+    border-radius: 25px; 
+    margin: 0 auto;
+    position: absolute;
+    bottom: 75px;
+  }
+
+  footer {
+    display: block;
+  }
+
+
+}
+
+@media (min-width: 900px) {
+  .card-content {
+    height: 60vh; 
+    width: 650px; 
+    border-radius: 55px;
+    padding: 40px;
+  }
+  footer {
+    display: block;
+  }
+}
+
+@media (min-width: 1025px) {
+  .card-content {
+    height: 70vh; 
+    width: 600px; 
+    border-radius: 55px;
+    padding: 40px;
+  }
+  footer {
+    display: block;
+  }
+}
+
+@media (min-width: 1150px) {
+  .card-content {
+    height: 70vh; 
+    width: 800px; 
+    border-radius: 55px;
+    padding: 40px;
+  }
+  footer {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card-content {
+    height: 70vh; 
     width: 900px; 
     border-radius: 55px;
     padding: 40px;
+  }
+  footer {
+    display: block;
   }
 }
 </style>

@@ -103,6 +103,8 @@ const _inlineRuntimeConfig = {
   },
   "public": {
     "supabase": {
+      "url": "https://hmgawsjezxarmivdiumr.supabase.co",
+      "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtZ2F3c2plenhhcm1pdmRpdW1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjAxMTc3ODIsImV4cCI6MjAzNTY5Mzc4Mn0.BDCC4t_IVYKU7Lwyhv-7-LOPy1tZs67X2NcHu4SnK3A",
       "redirect": false,
       "redirectOptions": {
         "login": "/login",
@@ -1195,7 +1197,7 @@ const unheadPlugins = true ? [CapoPlugin({ track: true })] : [];
 
 const renderSSRHeadOptions = {"omitLineBreaks":false};
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"}],"style":[],"script":[],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"}],"style":[],"script":[],"noscript":[]};
 
 const appRootTag = "div";
 

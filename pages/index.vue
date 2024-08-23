@@ -1,7 +1,10 @@
 <template>
   <div class="lg:flex lg:pl-40 h-screen overflow-x-auto overflow-y-hidden justify-end">
     <h1 class="title absolute left-10 top-7 lg:top-10 text-xl text-darkgreen">An overview of climate reporting in Europe</h1>
-    <Navigation />
+
+    <div class="absolute z-20">
+      <Navigation />
+    </div>
 
     <div class="absolute left-6 lg:right-5  lg:left-52 top-14 lg:top-auto lg:bottom-32 bg-white p-4 rounded-lg"
       style="width: 210px; z-index: 10;">
@@ -153,7 +156,7 @@
         d="M485.4,431.7l1.1,2.5,1.8,1.7,3.3,1.2v1.5l-1,.9-.7,3.3-2.2-.3-2.4.6h-1.6s-3.3-2.3-3.3-2.3l1.8-1.4-2.4-2.6.2-1.8,1.7-2.6,1.6-1.4,2.1.7h0Z" 
         @mouseover="showTooltip($event, 'Luxembourg')" @mouseleave="hideTooltip"/>
     </svg>
-
+    
     <Footer />
   </div>
 </template>
