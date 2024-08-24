@@ -10,7 +10,7 @@
               <fa :icon="item.open ? 'xmark' : 'angle-down'" />
             </button>
           </div>
-          <div v-if="item.open" class="text-grey p-4 text-xl" v-html="item.answer">
+          <div v-if="item.open" class="text-grey p-4 text-lg custom-font" v-html="item.answer">
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@ const items = ref([
     },
     {
         question: 'How often is the website updated?',
-        answer: 'We keep things fresh and up-to-date! The site automatically pulls in new news articles every 5 minutes between 09:00 and 21:00. This means each country’s news is refreshed every three hours during this period.',
+        answer: 'We keep things fresh and up-to-date! The site automatically pulls in new news articles from one country every 5 minutes between 09:00 and 21:00. This means each country’s news is refreshed every three hours during this period.',
         open: false
     }
 ])
@@ -66,5 +66,8 @@ a.news-link, a.news-link:visited {
 
 ul {
   padding-left: 20px; 
+}
+.custom-font {
+  font-family: 'Roboto', sans-serif; 
 }
 </style>

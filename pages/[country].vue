@@ -147,7 +147,7 @@ onMounted(fetchArticles);
 }
 
 .custom-font {
-  font-family: 'Roboto', sans-serif; /* Nutze die Moderustic Schriftart */
+  font-family: 'Roboto', sans-serif; 
 }
 
 @media (max-width: 640px) and (max-height: 700px) {
