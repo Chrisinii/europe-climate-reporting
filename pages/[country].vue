@@ -267,6 +267,8 @@ onMounted(fetchArticles);
     width: 600px; 
     border-radius: 55px;
     padding: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
   footer {
     display: block;
@@ -279,6 +281,8 @@ onMounted(fetchArticles);
     width: 800px; 
     border-radius: 55px;
     padding: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
   footer {
     display: block;
@@ -291,6 +295,22 @@ onMounted(fetchArticles);
     width: 900px; 
     border-radius: 55px;
     padding: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  footer {
+    display: block;
+  }
+}
+
+@media (min-width: 2080px) {
+  .card-content {
+    height: 70vh; 
+    width: 1500px; 
+    border-radius: 55px;
+    padding: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
   footer {
     display: block;
