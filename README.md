@@ -1,6 +1,6 @@
 # Climate Reporting Overview in Europe
 
-[Live Projekt](https://europe-climate-reporting-h81l.vercel.app/)
+[Live Projekt](https://europe-climate-reporting.vercel.app/)
 
 Dieses Projekt ist Teil meiner Abschlussarbeit im Rahmen meines Bachelorstudiums in Multimedia Production an der Fachhochschule Graubünden. Ziel des Projekts ist es, einen Überblick über die Berichterstattung zum Klimawandel in verschiedenen europäischen Ländern zu geben.
 
