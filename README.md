@@ -5,8 +5,7 @@
 Dieses Projekt ist Teil meiner Abschlussarbeit im Rahmen meines Bachelorstudiums in Multimedia Production an der Fachhochschule Graubünden. Ziel des Projekts ist es, einen Überblick über die Berichterstattung zum Klimawandel in verschiedenen europäischen Ländern zu geben.
 
 **🔒 Hinweis:** Dieses Projekt wurde am **20.09.2024 eingefroren**.  
-Es werden keine neuen Daten mehr aus der Datenbank geladen, da die Bachelorarbeit inzwischen **bewertet** ist und die Datenabfragen **monatlich kosten**.  
-Das Projekt bleibt aber online, damit man sich weiterhin einen Eindruck verschaffen kann.
+Es werden keine neuen Daten mehr aus der Datenbank geladen, da die Bachelorarbeit inzwischen **bewertet** ist und die Datenabfragen **monatlich kosten**. 
 
 
 ## Tech-Stack
