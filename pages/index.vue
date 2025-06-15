@@ -176,7 +176,8 @@ const tooltipTimeout = ref(null);
 const highlightedCountries = ref(new Set());
 
 const fetchHighlightedCountries = async () => {
-  const today = new Date().toISOString().slice(0, 10); 
+  // const today = new Date().toISOString().slice(0, 10); 
+  const today = '2024-09-20';
   const { data, error } = await supabase
     .from('news')
     .select('country')

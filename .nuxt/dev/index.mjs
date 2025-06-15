@@ -103,8 +103,8 @@ const _inlineRuntimeConfig = {
   },
   "public": {
     "supabase": {
-      "url": "https://hmgawsjezxarmivdiumr.supabase.co",
-      "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtZ2F3c2plenhhcm1pdmRpdW1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjAxMTc3ODIsImV4cCI6MjAzNTY5Mzc4Mn0.BDCC4t_IVYKU7Lwyhv-7-LOPy1tZs67X2NcHu4SnK3A",
+      "url": "https://inuomxbxqtrmmggfbklw.supabase.co",
+      "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImludW9teGJ4cXRybW1nZ2Zia2x3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwMTkyMzYsImV4cCI6MjA2NTU5NTIzNn0.mzVl0TtKTyMbURwE50UEq4k7k0g_IRJCB3HsuPI3CmM",
       "redirect": false,
       "redirectOptions": {
         "login": "/login",

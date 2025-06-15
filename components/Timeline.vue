@@ -22,21 +22,22 @@
   const emit = defineEmits(['dateSelected']);
   
   function generateDates() {
-      let dates = [];
-      for (let i = 0; i < 5; i++) {
-          const date = new Date();
-          date.setDate(date.getDate() - i);
-          const formattedDate = date.toISOString().slice(0, 10);
-          const day = date.getDate();
-          const weekDay = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(date);
-          dates.push({
-              display: `${day}`,
-              weekDay,
-              value: formattedDate
-          });
-      }
-      return dates;
+  const start = new Date('2024-09-20');
+  let dates = [];
+  for (let i = 0; i < 5; i++) {
+    const date = new Date(start);
+    date.setDate(start.getDate() - i);
+    const formattedDate = date.toISOString().slice(0, 10);
+    const day = date.getDate();
+    const weekDay = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(date);
+    dates.push({
+      display: `${day}`,
+      weekDay,
+      value: formattedDate
+    });
   }
+  return dates;
+}
   
   function selectDate(index) {
       selectedDateIndex.value = index;

@@ -1,7 +1,8 @@
 <script setup>
 const articleData = ref([]);
 const currentArticleIndex = ref(0);  // Ensure it's properly initialized.
-const selectedDate = ref(new Date().toISOString().slice(0, 10));
+// const selectedDate = ref(new Date().toISOString().slice(0, 10));
+const selectedDate = ref('2024-09-20');
 const supabase = useSupabaseClient();
 const route = useRoute();
 
