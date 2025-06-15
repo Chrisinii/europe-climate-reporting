@@ -1,3 +1,5 @@
+<!-- Nicht so wie geplant in XD -->
+
 <template>
     <div class="flex flex-col items-center justify-center min-h-screen">
       <p v-if="error">{{ error }}</p>
