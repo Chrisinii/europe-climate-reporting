@@ -2,7 +2,12 @@
   <div class="flex flex-col items-center justify-center min-h-screen">
     <p v-if="error">{{ error }}</p>
 
-    <div v-else class="w-full max-w-[1100px] px-4">
+    <!-- 👇 padding-top nur auf Desktop -->
+    <div 
+      v-else 
+      class="w-full max-w-[1100px] px-4" 
+      :class="isDesktop ? 'pt-16 pb-16' : ''"
+    >
       <!-- Desktop-Header + Buttons -->
       <div v-if="isDesktop" class="flex items-center justify-between mb-4">
         <h2 class="text-lg text-[#7A7A7A] font-semibold">Articles per Country</h2>
