@@ -6,7 +6,7 @@
     <div 
       v-else 
       class="w-full max-w-[1100px] px-4" 
-      :class="isDesktop ? 'pt-16 pb-16' : ''"
+      :class="isDesktop ? 'pt-16 pb-16 pl-16' : ''"
     >
       <!-- Desktop-Header + Buttons -->
       <div v-if="isDesktop" class="flex items-center justify-between mb-4">
