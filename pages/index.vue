@@ -1,5 +1,29 @@
 <template>
   <div class="lg:flex lg:pl-40 h-screen overflow-x-auto overflow-y-hidden justify-end">
+    <div v-if="showIntro && isDesktop" 
+
+     class="fixed inset-0 z-50 flex items-center justify-center bg-white/20 backdrop-blur-md">
+  <div class="relative bg-white rounded-3xl shadow-lg p-12 flex flex-col justify-between items-center text-center"
+       style="width: 50ch; height: 30vw;">
+
+    <!-- Textbereich zentriert -->
+<div class="text-gray-800 flex-1 flex flex-col justify-center items-center text-center">
+  <h2 class="text-xl font-semibold mb-4 text-darkgreen">
+    This website provides an overview of daily climate change articles from across Europe.
+  </h2>
+  <p class="text-base leading-relaxed max-w-[42ch]">
+    <strong class="text-[#E8524B]">Note:</strong> It was frozen on September 20, 2024, so no new articles are being added.
+  </p>
+</div>
+
+<button
+        @click="ackIntro"
+        class="absolute right-6 bottom-6 px-6 py-3 bg-green text-white rounded-3xl shadow-lg hover:bg-darkgreen transition-colors focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-2"
+      >
+        Okay
+      </button>
+  </div>
+</div>
     <h1 class="title absolute left-10 top-7 lg:top-10 text-xl text-darkgreen">An overview of climate reporting in Europe</h1>
 
     <div class="absolute z-20">
@@ -164,16 +188,28 @@
 
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const supabase = useSupabaseClient();
+
 const tooltipName = ref('');
 const tooltipVisible = ref(false);
 const tooltipPosition = ref({ x: 0, y: 0 });
 const tooltipTimeout = ref(null);
 const highlightedCountries = ref(new Set());
+
+// ── Pop-up State
+const showIntro = ref(false);
+const isDesktop = ref(false);
+
+// OK-Handler (auch als closeIntro nutzbar)
+function ackIntro() {
+  localStorage.setItem('introSeen', '1');
+  showIntro.value = false;
+}
+const closeIntro = ackIntro; // falls dein Template @click="closeIntro" nutzt
 
 const fetchHighlightedCountries = async () => {
   // const today = new Date().toISOString().slice(0, 10); 
@@ -194,7 +230,6 @@ const fetchHighlightedCountries = async () => {
   updateCountriesColor(countries);
 };
 
-
 const updateCountriesColor = (countries) => {
   document.querySelectorAll('.cls-1').forEach(path => {
     path.removeEventListener('mouseenter', hoverEnter);
@@ -211,14 +246,14 @@ const updateCountriesColor = (countries) => {
   });
 };
 
-// Funktion zum Ändern der Füllfarbe beim Hover
+// Hover-Farbe
 const hoverEnter = (event) => {
   if (!event.target.classList.contains('country-selected')) {
     event.target.style.fill = '#68B68B'; 
   }
 };
 
-// Funktion zum Zurücksetzen der Füllfarbe beim Verlassen des Hovers
+// Hover verlassen
 const hoverLeave = (event) => {
   if (!event.target.classList.contains('country-selected')) {
     if (highlightedCountries.value.has(event.target.id)) {
@@ -230,7 +265,6 @@ const hoverLeave = (event) => {
 };
 
 const showTooltip = (event, countryId) => {
-  
   if (tooltipTimeout.value) {
     clearTimeout(tooltipTimeout.value);
   }
@@ -243,7 +277,6 @@ const showTooltip = (event, countryId) => {
 };
 
 const hideTooltip = () => {
-  
   if (tooltipTimeout.value) {
     clearTimeout(tooltipTimeout.value);
   }
@@ -270,9 +303,34 @@ const redirectToCountry = (event) => {
   }
 };
 
+let mq; // MediaQueryList Referenz für Cleanup
+
 onMounted(() => {
+  // Desktop-Erkennung (Tailwind lg = 1024px)
+  mq = window.matchMedia('(min-width: 1024px)');
+  const updateIsDesktop = () => { isDesktop.value = mq.matches; };
+
+  // Initial setzen
+  updateIsDesktop();
+
+  // Auf Änderungen reagieren (z.B. DevTools -> iPhone / zurück)
+  mq.addEventListener('change', updateIsDesktop);
+  window.addEventListener('resize', updateIsDesktop);
+
+  // Pop-up nur beim ersten Besuch UND nur auf Desktop zeigen
+  if (!localStorage.getItem('introSeen') && isDesktop.value) {
+    showIntro.value = true;
+  }
+
   resetCountriesColor();
   fetchHighlightedCountries();
+});
+
+onUnmounted(() => {
+  if (mq) {
+    mq.removeEventListener('change', updateIsDesktop);
+  }
+  window.removeEventListener('resize', updateIsDesktop);
 });
 </script>
 
