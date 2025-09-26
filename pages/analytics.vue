@@ -11,6 +11,7 @@
       <!-- Desktop-Header + Buttons -->
       <div v-if="isDesktop" class="flex items-center justify-between mb-4">
         <h2 class="text-lg text-[#7A7A7A] font-semibold">Articles per Country</h2>
+        <p class="text-sm text-[#7A7A7A] mt-1">Data from January 1, 2024 to September 20, 2024</p>
 
         <div class="flex gap-2">
           <button
