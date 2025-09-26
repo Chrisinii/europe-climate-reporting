@@ -9,29 +9,31 @@
       :class="isDesktop ? 'pt-16 pb-16 pl-16' : ''"
     >
       <!-- Desktop-Header + Buttons -->
-      <div v-if="isDesktop" class="flex items-center justify-between mb-4">
-        <h2 class="text-lg text-[#7A7A7A] font-semibold">Articles per Country</h2>
-        <p class="text-sm text-[#7A7A7A] mt-1">Data from January 1, 2024 to September 20, 2024</p>
+      <div v-if="isDesktop" class="flex items-start justify-between mb-4">
+  <div class="flex flex-col">
+    <h2 class="text-lg text-[#7A7A7A] font-semibold">Articles per Country</h2>
+    <p class="text-sm text-[#7A7A7A] mt-1">Data from January 1, 2024 to September 20, 2024</p>
+  </div>
 
-        <div class="flex gap-2">
-          <button
-            class="px-3 py-1 rounded-lg shadow text-sm"
-            :class="viewMode === 'top' ? 'bg-[#E8524B] text-white' : 'bg-white text-[#7A7A7A]'"
-            @click="viewMode = 'top'"
-            title="Top-Länder anzeigen"
-          >
-            Top {{ topN }}
-          </button>
-          <button
-            class="px-3 py-1 rounded-lg shadow text-sm"
-            :class="viewMode === 'all' ? 'bg-[#E8524B] text-white' : 'bg-white text-[#7A7A7A]'"
-            @click="viewMode = 'all'"
-            title="Alle Länder anzeigen"
-          >
-            All
-          </button>
-        </div>
-      </div>
+  <div class="flex gap-2 self-start">
+    <button
+      class="px-3 py-1 rounded-lg shadow text-sm"
+      :class="viewMode === 'top' ? 'bg-[#E8524B] text-white' : 'bg-white text-[#7A7A7A]'"
+      @click="viewMode = 'top'"
+      title="Show Top Countries"
+    >
+      Top {{ topN }}
+    </button>
+    <button
+      class="px-3 py-1 rounded-lg shadow text-sm"
+      :class="viewMode === 'all' ? 'bg-[#E8524B] text-white' : 'bg-white text-[#7A7A7A]'"
+      @click="viewMode = 'all'"
+      title="Show All Countries"
+    >
+      All
+    </button>
+  </div>
+</div>
 
       <!-- Chart auf Desktop -->
       <highchart v-if="isDesktop" :options="chartOptions" />
