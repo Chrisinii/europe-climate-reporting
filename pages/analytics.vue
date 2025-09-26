@@ -27,7 +27,7 @@
             @click="viewMode = 'all'"
             title="Alle Länder anzeigen"
           >
-            Alle
+            All
           </button>
         </div>
       </div>
